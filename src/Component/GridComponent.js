@@ -8,22 +8,41 @@ class GridComponent extends Component {
         //this.state = {x: 10, y:10};        
         
         this.state = { 
-            rows : [
+            grid : [
+                {row : [
+                        { "id": 1, "name": "Leanne Graham" },
+                        { "id": 2, "name": "Ervin Howell" },
+                        { "id": 3, "name": "Clementine Bauch" },
+                        { "id": 4, "name": "Patricia Lebsack" }
+                    ]},
+                {row : [
+                    { "id": 1, "name": "Leanne Graham" },
+                    { "id": 2, "name": "Ervin Howell" },
+                    { "id": 3, "name": "Clementine Bauch" },
+                    { "id": 3, "name": "Clementine Bauch" },
+                    { "id": 4, "name": "Patricia Lebsack" }
+                ]},
+                {row : [
                     { "id": 1, "name": "Leanne Graham" },
                     { "id": 2, "name": "Ervin Howell" },
                     { "id": 3, "name": "Clementine Bauch" },
                     { "id": 4, "name": "Patricia Lebsack" }
-                ]
+                ]}
+            ]
         }
     }
 
     render() {
         return (
-        <div id="GridComponent">
-        
+        <div id="GridComponent">        
             {
                 //this.state.rows.map(n => <p>{n.name}</p> )
-                this.state.rows.map(n => <Cell/>  )
+                this.state.grid.map(
+                    r => <div>
+                            {r.row.map(n => <Cell/>) }
+                         </div>
+                )
+                 
             }
         
         </div>
