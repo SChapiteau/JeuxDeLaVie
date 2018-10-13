@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Game.css';
+import GridComponent from './GridComponent.js';
 
 class Game extends Component {
     
@@ -12,22 +13,22 @@ class Game extends Component {
     render() {
         return (
         <div id="GameControls">
-            <div >
+        
             <button onClick={this.reset}>Reset</button>
             <button onClick={this.stop}>Stop</button>
             <button onClick={this.start}>Start</button>
             <label>Itération :</label>
             <label className="iterationLabel"> {this.state.interation}</label>
-        </div>
+
+            <div>
+                <GridComponent/>
+            </div>
+        
         </div>
         );
     }
 
-    componentDidMount() {
-        // this.timerID = setInterval(
-        //     () => this.loop(),
-        //     500
-        //   );
+    componentDidMount() {        
     }
   
     componentWillUnmount() {
