@@ -5,7 +5,7 @@ class Game extends Component {
     
     constructor(props) {
         super(props);
-        this.state = {interation: 1};
+        this.state = {interation: 0};
             
       }
 
@@ -14,6 +14,7 @@ class Game extends Component {
         <div id="GameControls">
             <div >
             <button onClick={this.reset}>Reset</button>
+            <button onClick={this.stop}>Stop</button>
             <button onClick={this.start}>Start</button>
             <label>Itération :</label>
             <label className="iterationLabel"> {this.state.interation}</label>
@@ -23,22 +24,25 @@ class Game extends Component {
     }
 
     componentDidMount() {
-        this.timerID = setInterval(
-            () => this.loop(),
-            500
-          );
+        // this.timerID = setInterval(
+        //     () => this.loop(),
+        //     500
+        //   );
     }
   
     componentWillUnmount() {
         clearInterval(this.timerID);
     }
 
-    start(){
-        this.setState({interation: 0});   
+    start =  () =>  {        
         this.timerID = setInterval(
             () => this.loop(),
             500
             );
+    }
+
+    stop = () => {          
+        clearInterval(this.timerID);
     }
 
     loop = () => {
@@ -46,7 +50,8 @@ class Game extends Component {
     }
 
     reset = () => {
-        //interaction = 0;
+        this.setState({interation: 0});  
+        clearInterval(this.timerID);
     }
 
 }
