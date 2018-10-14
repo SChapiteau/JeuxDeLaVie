@@ -15,11 +15,13 @@ class Cell extends Component {
 
             width : '30px',
             height : '30px',
-            backgroundColor: "black",
-            margin : '2px',
+            backgroundColor: "white",
+            margin : '0px',
+            //marginRigth : '0px',
             display : 'inline',
-            
-            
+            border : '1px solid black', 
+            borderRight : '0px',
+            borderBottom : '0px',
         };
 
         return (

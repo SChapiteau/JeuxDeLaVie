@@ -19,7 +19,7 @@ class GridComponent extends Component {
                     { "id": 1, "name": "Leanne Graham" },
                     { "id": 2, "name": "Ervin Howell" },
                     { "id": 3, "name": "Clementine Bauch" },
-                    { "id": 3, "name": "Clementine Bauch" },
+                    //{ "id": 3, "name": "Clementine Bauch" },
                     { "id": 4, "name": "Patricia Lebsack" }
                 ]},
                 {row : [
@@ -33,12 +33,26 @@ class GridComponent extends Component {
     }
 
     render() {
+
+        const gridstyle = {                        
+            borderRight : 'solid black 1px',
+            borderBottom : ' solid black 1px',
+            display: 'inline-block',
+            margin :'0px'
+        };
+
+        const rowstyle = {                                    
+            margin :'0px',
+            padding :'0px',            
+        };
+
         return (
-        <div id="GridComponent">        
+            
+        <div id="GridComponent" style={gridstyle}>        
             {
                 //this.state.rows.map(n => <p>{n.name}</p> )
                 this.state.grid.map(
-                    r => <div>
+                    r => <div style={rowstyle}>
                             {r.row.map(n => <Cell/>) }
                          </div>
                 )
