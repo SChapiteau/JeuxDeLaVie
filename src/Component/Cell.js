@@ -13,15 +13,16 @@ class Cell extends Component {
             //whidth : this.props.x,
             //height : this.props.y
 
-            width : '30px',
-            height : '30px',
-            backgroundColor: "white",
-            margin : '0px',
+            width : '50px',
+            height : '50px',
+            backgroundColor: "transparent",
+            margin : '0px',            
             //marginRigth : '0px',
             display : 'inline',
-            border : '1px solid black', 
-            borderRight : '0px',
-            borderBottom : '0px',
+            border : 'transparent', 
+            borderTop : '1px solid black',
+            borderLeft : '1px solid black',
+            //borderBottom : '0px',
         };
 
         return (

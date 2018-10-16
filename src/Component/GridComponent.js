@@ -38,10 +38,12 @@ class GridComponent extends Component {
             borderRight : 'solid black 1px',
             borderBottom : ' solid black 1px',
             display: 'inline-block',
-            margin :'0px'
+            height : 'auto' ,
+            margin :'5px'
         };
 
-        const rowstyle = {                                    
+        const rowstyle = {        
+            height : '50px' ,
             margin :'0px',
             padding :'0px',            
         };
