@@ -26,8 +26,11 @@ class CellComponent extends Component {
         };
 
         return (
-        <canvas style={cellstyle}>             
-        </canvas>
+            <span>
+                <canvas style={cellstyle}>              
+                </canvas>
+                {/* <label>{this.props.id}</label> */}
+            </span>
         );
     }
 }

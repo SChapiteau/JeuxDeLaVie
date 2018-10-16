@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import './Game.css';
 import GridComponent from './GridComponent.js';
+import Cell from './../Business/Cell';
+import CellGenerator from './../Business/CellGenerator';
 
 class Game extends Component {
     
     constructor(props) {
         super(props);
-        this.state = {interation: 0};
+
+        var newgrid = CellGenerator.GenerateCell(10,10);
+        this.state = {interation: 0, grid: newgrid };
             
       }
 
@@ -21,7 +25,7 @@ class Game extends Component {
             <label className="iterationLabel"> {this.state.interation}</label>
 
             <div>
-                <GridComponent/>
+                <GridComponent grid={this.state.grid}/>
             </div>
         
         </div>
@@ -29,6 +33,7 @@ class Game extends Component {
     }
 
     componentDidMount() {        
+        
     }
   
     componentWillUnmount() {
