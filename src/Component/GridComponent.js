@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Cell from './Cell.js';
+import CellComponent from './CellComponent.js';
 
 class GridComponent extends Component {
     
@@ -55,7 +55,7 @@ class GridComponent extends Component {
                 //this.state.rows.map(n => <p>{n.name}</p> )
                 this.state.grid.map(
                     r => <div style={rowstyle}>
-                            {r.row.map(n => <Cell/>) }
+                            {r.row.map(n => <CellComponent/>) }
                          </div>
                 )
                  
