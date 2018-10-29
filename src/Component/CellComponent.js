@@ -4,18 +4,15 @@ class CellComponent extends Component {
     
     constructor(props) {
         super(props);
-        //this.state = {x: 10, y:10};                        
+        this.state = {backgroundColor: "transparent"};                                
     }
 
     render() {
 
-        const cellstyle = {            
-            //whidth : this.props.x,
-            //height : this.props.y
-
+        const cellstyle = {                        
             width : '50px',
             height : '50px',
-            backgroundColor: "transparent",
+            backgroundColor: this.state.backgroundColor,
             margin : '0px',            
             //marginRigth : '0px',
             display : 'inline',
@@ -27,11 +24,20 @@ class CellComponent extends Component {
 
         return (
             <span>
-                <canvas style={cellstyle}>              
+                <canvas style={cellstyle} onClick={this.changeColor}>              
                 </canvas>
                 {/* <label>{this.props.id}</label> */}
             </span>
         );
+    }
+
+    changeColor = () => {
+        if(this.state.backgroundColor == "transparent")
+        {
+            this.setState({backgroundColor: "black"});      
+        }
+        else
+            this.setState({backgroundColor: "transparent"});   
     }
 }
 
