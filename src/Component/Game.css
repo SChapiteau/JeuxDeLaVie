@@ -8,3 +8,9 @@ Button {
 {
     color: red;
 }
+
+#GameGrid
+{
+    overflow: auto;
+    resize: none;
+}

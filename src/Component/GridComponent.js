@@ -37,33 +37,36 @@ class GridComponent extends Component {
     render() {
 
         const gridstyle = {                        
-            borderRight : 'solid black 1px',
-            borderBottom : ' solid black 1px',
-            display: 'inline-block',
-            height : 'auto' ,
-            margin :'5px'
+            // borderRight : 'solid black 1px',
+            // borderBottom : ' solid black 1px',
+            //display: 'inline',
+            // height : 'auto' ,
+            margin :'5px',
+            overflow : 'auto'
         };
 
         const rowstyle = {        
-            height : '50px' ,
-            margin :'0px',
-            padding :'0px',            
+            // height : '50px' ,
+            // margin :'0px',
+            // padding :'0px',   
+            // display : 'inline' ,       
+            overflow: 'visible', 
         };
 
         return (
             
-        <div id="GridComponent" style={gridstyle}>        
+        <table id="GridComponent" style={gridstyle}>        
             {
                 //this.props.grid.map(n => <CellComponent id={n.Id}/>)
                 this.props.grid.map(
-                    r => <div style={rowstyle}>
+                    r => <tr style={rowstyle}>
                             {r.map(n => <CellComponent id={n.Id}/>) }
-                         </div>
+                         </tr>
                 )
                  
             }
         
-        </div>
+        </table>
         );
     }
 }

@@ -24,7 +24,7 @@ class Game extends Component {
             <label>Itération :</label>
             <label className="iterationLabel"> {this.state.interation}</label>
 
-            <div>
+            <div id="GameGrid">
                 <GridComponent grid={this.state.grid}/>
             </div>
         
