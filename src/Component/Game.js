@@ -3,15 +3,22 @@ import './Game.css';
 import GridComponent from './GridComponent.js';
 import Cell from './../Business/Cell';
 import CellGenerator from './../Business/CellGenerator';
+import GridCalculator from './../Business/GridCalculator';
 
 class Game extends Component {
     
     constructor(props) {
         super(props);
 
-        var newgrid = CellGenerator.GenerateCell(10,10);
-        this.state = {interation: 0, grid: newgrid };
-            
+        var newgrid = CellGenerator.GenerateCell(10,10);        
+        var newgridCalculator = new GridCalculator(newgrid);
+        this.state = {interation: 0, 
+                        grid: newgrid,
+                        gridCalculator : newgridCalculator
+                    };
+        
+        
+        //gridCalculator.HandleGridChange();        
       }
 
     render() {
@@ -25,7 +32,7 @@ class Game extends Component {
             <label className="iterationLabel"> {this.state.interation}</label>
 
             <div id="GameGrid">
-                <GridComponent grid={this.state.grid}/>
+                <GridComponent grid={this.state.grid} handleGridChange={this.handleChange}/>
             </div>
         
         </div>
@@ -59,6 +66,11 @@ class Game extends Component {
         this.setState({interation: 0});  
         clearInterval(this.timerID);
     }
+
+    handleChange = (id) => {
+        this.state.gridCalculator.HandleGridChange(id);
+    }
+    
 
 }
 

@@ -30,6 +30,7 @@ class CellComponent extends Component {
     }
 
     changeColor = () => {
+        this.props.handleGridChange(this.props.id);
         if(this.state.backgroundColor == "transparent")
         {
             this.setState({backgroundColor: "black"});      

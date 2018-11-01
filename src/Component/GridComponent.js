@@ -5,33 +5,6 @@ class GridComponent extends Component {
     
     constructor(props) {
         super(props);
-        //this.state = {x: 10, y:10};        
-        
-        // this.state = { 
-        //     grid : [
-        //         {row : [
-        //                 { "id": 1, "name": "Leanne Graham" },
-        //                 { "id": 2, "name": "Ervin Howell" },
-        //                 { "id": 3, "name": "Clementine Bauch" },
-        //                 { "id": 4, "name": "Patricia Lebsack" }
-        //             ]},
-        //         {row : [
-        //             { "id": 1, "name": "Leanne Graham" },
-        //             { "id": 2, "name": "Ervin Howell" },
-        //             { "id": 3, "name": "Clementine Bauch" },
-        //             //{ "id": 3, "name": "Clementine Bauch" },
-        //             { "id": 4, "name": "Patricia Lebsack" }
-        //         ]},
-        //         {row : [
-        //             { "id": 1, "name": "Leanne Graham" },
-        //             { "id": 2, "name": "Ervin Howell" },
-        //             { "id": 3, "name": "Clementine Bauch" },
-        //             { "id": 4, "name": "Patricia Lebsack" }
-        //         ]}
-        //     ]
-        // }
-
-        // this.state = { grid : props.grid}
     }
 
     render() {
@@ -54,21 +27,26 @@ class GridComponent extends Component {
             overflow: 'visible', 
         };
 
-        return (
-            
+        return (            
         <table id="GridComponent" style={gridstyle}>        
             {
                 //this.props.grid.map(n => <CellComponent id={n.Id}/>)
                 this.props.grid.map(
                     r => <tr style={rowstyle}>
-                            {r.map(n => <CellComponent id={n.Id}/>) }
+                            {
+                                r.map(n => 
+                                <CellComponent id={n.Id} handleGridChange={this.props.handleGridChange}
+                                callback={this.renderTest}/> ) 
+                            }
                          </tr>
-                )
-                 
-            }
-        
+                )                 
+            }        
         </table>
         );
+    }
+
+    renderTest = () => {
+        console.log("Test");
     }
 }
 
