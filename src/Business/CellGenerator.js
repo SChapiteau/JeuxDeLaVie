@@ -1,6 +1,8 @@
 import Cell from './../Business/Cell';
 
 class CellGenerator {
+    
+    //A rappatrier dans le grid calculator
     static GenerateCell(rowNumber, columNumber)
     {
         var grid = new Array();
@@ -18,5 +20,5 @@ class CellGenerator {
     }
 }
 
-//export Cell;
+
 export default  CellGenerator;

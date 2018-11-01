@@ -29,17 +29,13 @@ class GridComponent extends Component {
                             {
                                 r.map(n => 
                                 <CellComponent id={n.Id} handleGridChange={this.props.handleGridChange}
-                                callback={this.renderTest}/> ) 
+                                            isAlive={n.IsAlive}/> ) 
                             }
                          </tr>
                 )                 
             }        
         </table>
         );
-    }
-
-    renderTest = () => {
-        console.log("Test");
     }
 }
 

@@ -4,7 +4,10 @@ class CellComponent extends Component {
     
     constructor(props) {
         super(props);
-        this.state = {backgroundColor: "transparent"};                                
+        if(this.props.isAlive)
+            this.state = {backgroundColor: "black"};                                
+        else
+            this.state = {backgroundColor: "transparent"};                                
     }
 
     render() {
