@@ -11,26 +11,19 @@ class GridComponent extends Component {
 
         const gridstyle = {                        
             borderRight : 'solid black 1px',
-            borderBottom : ' solid black 1px',
-            //display: 'inline',
-            // height : 'auto' ,
+            borderBottom : ' solid black 1px',            
             margin :'5px',
             overflow : 'auto',
             borderSpacing: '0',
         };
 
-        const rowstyle = {        
-            // height : '50px' ,
-            // margin :'0px',
-            // padding :'0px',   
-            // display : 'inline' ,       
+        const rowstyle = {                    
             overflow: 'visible', 
         };
 
         return (            
         <table id="GridComponent" style={gridstyle}>        
-            {
-                //this.props.grid.map(n => <CellComponent id={n.Id}/>)
+            {                
                 this.props.grid.map(
                     r => <tr style={rowstyle}>
                             {

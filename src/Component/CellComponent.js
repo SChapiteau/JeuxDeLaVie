@@ -13,23 +13,18 @@ class CellComponent extends Component {
             width : '50px',
             height : '50px',
             backgroundColor: this.state.backgroundColor,
-            margin : '0px',            
-            //marginRigth : '0px',
-            //display : 'inline',
-            //border : '1px solid black', 
+            margin : '0px',                        
             borderTop : '1px solid black',
-            borderLeft : '1px solid black',
-            //borderBottom : '0px',
+            borderLeft : '1px solid black',            
         };
 
         return (            
-                <td style={cellstyle} onClick={this.changeColor}>              
-                    {/* <label>{this.props.id}</label> */}
+                <td style={cellstyle} onClick={this.clickOnCell}>                                  
                 </td>                
         );
     }
 
-    changeColor = () => {
+    clickOnCell = () => {
         this.props.handleGridChange(this.props.id);
         if(this.state.backgroundColor == "transparent")
         {

@@ -15,10 +15,7 @@ class Game extends Component {
         this.state = {interation: 0, 
                         grid: newgrid,
                         gridCalculator : newgridCalculator
-                    };
-        
-        
-        //gridCalculator.HandleGridChange();        
+                    };                        
       }
 
     render() {
