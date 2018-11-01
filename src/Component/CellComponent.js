@@ -16,9 +16,9 @@ class CellComponent extends Component {
             margin : '0px',            
             //marginRigth : '0px',
             //display : 'inline',
-            border : '1px solid black', 
-            //borderTop : '1px solid black',
-            //borderLeft : '1px solid black',
+            //border : '1px solid black', 
+            borderTop : '1px solid black',
+            borderLeft : '1px solid black',
             //borderBottom : '0px',
         };
 

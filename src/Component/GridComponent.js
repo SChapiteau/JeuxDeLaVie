@@ -37,12 +37,13 @@ class GridComponent extends Component {
     render() {
 
         const gridstyle = {                        
-            // borderRight : 'solid black 1px',
-            // borderBottom : ' solid black 1px',
+            borderRight : 'solid black 1px',
+            borderBottom : ' solid black 1px',
             //display: 'inline',
             // height : 'auto' ,
             margin :'5px',
-            overflow : 'auto'
+            overflow : 'auto',
+            borderSpacing: '0',
         };
 
         const rowstyle = {        
