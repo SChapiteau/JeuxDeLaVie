@@ -15,27 +15,35 @@ class GridComponent extends Component {
             margin :'5px',
             overflow : 'auto',
             borderSpacing: '0',
-        };
+        };        
 
-        const rowstyle = {                    
+        return (                           
+
+        <table id="GridComponent" style={gridstyle}>        
+            {this.createTable()}        
+        </table>
+        );
+    }
+
+    createTable = () =>{
+        var rowstyle = {                    
             overflow: 'visible', 
         };
 
-        return (            
-        <table id="GridComponent" style={gridstyle}>        
-            {                
-                this.props.grid.map(
-                    r => <tr style={rowstyle}>
-                            {
-                                r.map(n => 
-                                <CellComponent id={n.Id} handleGridChange={this.props.handleGridChange}
-                                            isAlive={n.IsAlive}/> ) 
-                            }
-                         </tr>
-                )                 
-            }        
-        </table>
-        );
+        var listOfrows = [];
+        for(var r =0; r< this.props.grid.row; r++)
+        {
+            let row = [];
+            for(var c=0; c< this.props.grid.column; c++)
+            {
+                var cellId = r+"-"+c;
+                var cell = this.props.grid[cellId];
+                row.push(<CellComponent key={cell.Id} id={cell.Id} handleGridChange={this.props.handleGridChange}
+                    isAlive={cell.IsAlive}/>)
+            }
+            listOfrows.push(<tr style={rowstyle}>{row}</tr>)
+        }
+        return listOfrows;
     }
 }
 

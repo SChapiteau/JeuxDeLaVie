@@ -10,28 +10,26 @@ class Game extends Component {
     constructor(props) {
         super(props);
 
-        var newgrid = CellGenerator.GenerateCell(10,10);        
-        var newgridCalculator = new GridCalculator(newgrid);
+        //var newgrid = CellGenerator.GenerateCell(10,10);        
+        this.gridCalculator = new GridCalculator(10,10);
         this.state = {interation: 0, 
-                        grid: newgrid,
-                        gridCalculator : newgridCalculator
+                        grid: this.gridCalculator.grid,                        
                     };                        
       }
 
     render() {
         return (
-        <div id="GameControls">
-        
-            <button onClick={this.reset}>Reset</button>
-            <button onClick={this.stop}>Stop</button>
-            <button onClick={this.start}>Start</button>
-            <label>Itération :</label>
-            <label className="iterationLabel"> {this.state.interation}</label>
-
+        <div>
+            <div id="GameControls">            
+                <button onClick={this.reset}>Reset</button>
+                <button onClick={this.stop}>Stop</button>
+                <button onClick={this.start}>Start</button>
+                <label>Itération :</label>
+                <label className="iterationLabel"> {this.state.interation}</label>
+            </div>
             <div id="GameGrid">
                 <GridComponent grid={this.state.grid} handleGridChange={this.handleChange}/>
             </div>
-        
         </div>
         );
     }
@@ -65,7 +63,7 @@ class Game extends Component {
     }
 
     handleChange = (id) => {
-        this.state.gridCalculator.HandleGridChange(id);
+        this.gridCalculator.handleGridChange(id);
     }
     
 

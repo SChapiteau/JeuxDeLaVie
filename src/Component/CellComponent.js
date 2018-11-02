@@ -22,13 +22,14 @@ class CellComponent extends Component {
         };
 
         return (            
-                <td style={cellstyle} onClick={this.clickOnCell}>                                  
+                <td style={cellstyle} onClick={this.clickOnCell} key={this.props.id}>                                  
                 </td>                
         );
     }
 
     clickOnCell = () => {
         this.props.handleGridChange(this.props.id);
+        //A passer en commentaire
         if(this.state.backgroundColor == "transparent")
         {
             this.setState({backgroundColor: "black"});      

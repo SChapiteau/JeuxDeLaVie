@@ -3,18 +3,26 @@ import Cell from './../Business/Cell';
 class GridCalculator {
 
     //Constructeur
-    constructor(initialGrid) {
-        var Grid = {};                
+    constructor(rowNumber, columNumber) {
+        this.grid = this.generateCell(rowNumber, columNumber) ;              
+    }
 
-        initialGrid.forEach(row => {
-            row.forEach(cell => {
-                Grid[cell.Id] = cell;
-            })
-        });
+    generateCell (rowNumber, columNumber) 
+    {
+        var grid = {row: rowNumber, column: columNumber};
+        for(var row = 0; row < rowNumber;row++)
+        {                    
+            for(var column = 0; column < columNumber;column++)            
+            {                
+                var cell = new Cell(row,column)
+                grid[cell.Id] = cell;
+            }            
+        }
+        return grid;
     }
     
-    HandleGridChange = (id) => {
-        console.log(id);                 
+    handleGridChange = (id) => {
+        console.log("Hello "+id);                 
     }    
 }
 

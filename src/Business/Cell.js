@@ -1,8 +1,10 @@
 class Cell {    
-    constructor(color, id) {
-        this.Color = color;       
-        this.Id = id; 
-        this.IsAlive = true;
+    constructor(row,column) {
+        
+        this.Row = row;
+        this.Column = column;
+        this.Id = row+"-"+column; 
+        this.IsAlive = false;
     }    
 
 
