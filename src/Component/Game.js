@@ -11,8 +11,10 @@ class Game extends Component {
         super(props);
 
         //var newgrid = CellGenerator.GenerateCell(10,10);        
-        this.gridCalculator = new GridCalculator(10,10);
-        this.state = {interation: 0, 
+        this.gridCalculator = new GridCalculator(15,15);
+        this.state = {  
+                        interation: 0, 
+                        gridCalculator : this.gridCalculator,
                         grid: this.gridCalculator.grid,                        
                     };                        
       }
@@ -63,7 +65,8 @@ class Game extends Component {
     }
 
     handleChange = (id) => {
-        this.gridCalculator.handleGridChange(id);
+        this.state.gridCalculator.handleGridChange(id);        
+        this.setState({grid: this.gridCalculator.grid });      
     }
     
 

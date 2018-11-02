@@ -6,9 +6,6 @@ class Cell {
         this.Id = row+"-"+column; 
         this.IsAlive = false;
     }    
-
-
-    
 }
 
 export default Cell;

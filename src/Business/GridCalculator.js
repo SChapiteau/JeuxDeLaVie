@@ -22,7 +22,8 @@ class GridCalculator {
     }
     
     handleGridChange = (id) => {
-        console.log("Hello "+id);                 
+        console.log("Hello "+id);   
+        this.grid[id].IsAlive = !this.grid[id].IsAlive
     }    
 }
 
