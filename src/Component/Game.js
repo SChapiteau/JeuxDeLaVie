@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './Game.css';
 import GridComponent from './GridComponent.js';
 import Cell from './../Business/Cell';
-import CellGenerator from './../Business/CellGenerator';
 import GridCalculator from './../Business/GridCalculator';
 
 class Game extends Component {
