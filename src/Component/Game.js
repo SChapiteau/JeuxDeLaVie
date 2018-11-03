@@ -9,7 +9,7 @@ class Game extends Component {
     constructor(props) {
         super(props);
         this.isRunning = false;
-        this.gridCalculator = new GridCalculator(15,15);
+        this.gridCalculator = new GridCalculator(10,10);
         this.state = {  
                         interation: 0, 
                         gridCalculator : this.gridCalculator,
@@ -24,6 +24,7 @@ class Game extends Component {
                 <button onClick={this.reset}>Reset</button>
                 <button onClick={this.stop}>Stop</button>
                 <button onClick={this.start}>Start</button>
+                <button onClick={this.loop}>Next</button>
                 <label>Itération :</label>
                 <label className="iterationLabel"> {this.state.interation}</label>
             </div>
@@ -47,7 +48,7 @@ class Game extends Component {
         {
             this.timerID = setInterval(
                 () => this.loop(),
-                500
+                1500
                 );
             this.isRunning = true;
         }
@@ -59,9 +60,17 @@ class Game extends Component {
     }
 
     loop = () => {
-        this.gridCalculator.CalculNextIteration();
-        this.setState({grid: this.gridCalculator.grid });      
-        this.setState({interation: this.state.interation +1});        
+        try
+        {
+            this.gridCalculator.calculNextIteration();
+            this.setState({grid: this.gridCalculator.grid });      
+            this.setState({interation: this.state.interation +1});        
+        }
+        catch(exception)
+        {
+            console.log("stop after error "+exception);
+            this.stop();
+        }
     }
 
     reset = () => {
