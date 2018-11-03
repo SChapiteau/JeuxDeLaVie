@@ -8,8 +8,7 @@ class Game extends Component {
     
     constructor(props) {
         super(props);
-
-        //var newgrid = CellGenerator.GenerateCell(10,10);        
+        this.isRunning = false;
         this.gridCalculator = new GridCalculator(15,15);
         this.state = {  
                         interation: 0, 
@@ -44,17 +43,24 @@ class Game extends Component {
     }
 
     start =  () =>  {        
-        this.timerID = setInterval(
-            () => this.loop(),
-            500
-            );
+        if(!this.isRunning)
+        {
+            this.timerID = setInterval(
+                () => this.loop(),
+                500
+                );
+            this.isRunning = true;
+        }
     }
 
     stop = () => {          
         clearInterval(this.timerID);
+        this.isRunning = false;
     }
 
     loop = () => {
+        this.gridCalculator.CalculNextIteration();
+        this.setState({grid: this.gridCalculator.grid });      
         this.setState({interation: this.state.interation +1});        
     }
 
@@ -64,7 +70,7 @@ class Game extends Component {
     }
 
     handleChange = (id) => {
-        this.state.gridCalculator.handleGridChange(id);        
+        this.gridCalculator.handleGridChange(id);        
         this.setState({grid: this.gridCalculator.grid });      
     }
     
