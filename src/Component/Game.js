@@ -9,7 +9,7 @@ class Game extends Component {
     constructor(props) {
         super(props);
         this.isRunning = false;
-        this.gridCalculator = new GridCalculator(10,10);
+        this.gridCalculator = new GridCalculator(50,50);
         this.state = {  
                         interation: 0, 
                         gridCalculator : this.gridCalculator,
@@ -48,7 +48,7 @@ class Game extends Component {
         {
             this.timerID = setInterval(
                 () => this.loop(),
-                1500
+                500
                 );
             this.isRunning = true;
         }

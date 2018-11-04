@@ -15,8 +15,8 @@ class CellComponent extends Component {
             this.backgroundColor = "transparent";  
 
         const cellstyle = {                        
-            width : '50px',
-            height : '50px',
+            width : '20px',
+            height : '20px',
             backgroundColor: this.backgroundColor,
             margin : '0px',                        
             borderTop : '1px solid black',

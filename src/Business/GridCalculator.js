@@ -45,9 +45,8 @@ class GridCalculator {
     calculNextCell = (cell) => {
         //cell.IsAlive = ! cell.IsAlive;
         console.log("Calculating "+cell.Id);   
-        var neighbours = this.getNeighbours(cell);
-        var aliveNeibourgs = neighbours.filter(c => c.IsAlive == true);
-        var isCellAlive = aliveNeibourgs.length == 3 || aliveNeibourgs.length == 4;
+        var neighbours = this.getNeighbours(cell);        
+        var isCellAlive = this.choseCellAlive(cell, neighbours);
         var nextCell =  new Cell(cell.Row, cell.Column);
         nextCell.IsAlive = isCellAlive;
         return nextCell;
@@ -68,6 +67,18 @@ class GridCalculator {
             }
         }
         return neighbours;
+    }
+
+    choseCellAlive = (cell, neighbours) =>{
+        var aliveNeibourgs = neighbours.filter(c => c.IsAlive == true);
+        if(!cell.IsAlive)
+        {            
+            return aliveNeibourgs.length ==3                
+        }
+        else
+        {
+            return aliveNeibourgs.length == 2 || aliveNeibourgs.length == 3;
+        }
     }
 
     
